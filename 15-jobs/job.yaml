@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: kubernetes-job
+  namespace: devops-learning
+
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: job
+          image: busybox:1.36
+
+          command:
+            - sh
+            - -c
+            - "echo Kubernetes Job completed successfully"
